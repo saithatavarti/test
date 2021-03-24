@@ -1,0 +1,14 @@
+users_count="select COUNT(*) AS count_users from users"
+login_emailcheck="SELECT * FROM users where email = (?) ",(email,)
+registration_details="INSERT into users (email,password,role) values (?,?,?)",(email,password,role)
+save_urls="select * from url_list"
+users_count="select COUNT(*) AS count_users from url_list"
+add_url="INSERT into url_list (url, source_name, category, created_by) values (?,?,?,?)",(url,source_name,category,user)
+delete_url="delete from url_list where id = ?",id
+view_bookmarked="SELECT * FROM bookmarked where article_id == :article_id and user_id == :user_id", {"article_id": articleid, "user_id": userid}
+delete_bookmark="delete from bookmarked where article_id = (?) and user_id = (?)",(articleid,userid)
+add_bookmark="INSERT into bookmarked (article_id,user_id) values (?,?)",(articleid,userid)
+show_article="select * from article"
+view_upvoted="SELECT * FROM upvote where article_id == :article_id and user_id == :user_id", {"article_id": articleid, "user_id": userid}
+delete_upvote="delete from upvote where article_id = (?) and user_id = (?)",(articleid,userid)
+add_upvote="INSERT into upvote (article_id,user_id) values (?,?)",(articleid,userid)
